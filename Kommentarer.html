@@ -11,9 +11,6 @@
     </style>
 </head>
 
-<script type="text/javascript" src="Kommentarer.js"></script>
-
-
 <body>
     <div id="messageList" style="overflow-y:scroll;
         height:300px;
@@ -37,15 +34,9 @@
                 <input type="submit">
             </div>
         </form>
+         
     </div>
-    <script>
-    renderMessageList();
-window.addEventListener("storage", function (event) {
-    if (event.key === "messageList") {
-        renderMessageList();
-    }
-});
-    </script>
+  <script type="text/javascript" src="Kommentarer.js"></script>
 </body>
 
 </html>
