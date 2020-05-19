@@ -5,7 +5,7 @@ function addNewMember(Event) {
     nameList.push(member);
     window.localStorage.setItem("nameList", JSON.stringify(nameList));
     
-    event.target.reset();
+    memberElement();
     
 }
 function addMemberDiv(Event) {
@@ -19,8 +19,21 @@ function addMemberDiv(Event) {
             //div.style.backgroundColor = "black";
 
 
-         document.getElementsByTagName('body')[0].appendChild(div);
+         document.getElementById('MemberContainer')[0].appendChild(div);
      }
 }
 
+memberElement();
+
+function memberElement(){
+    
+    const nameList = JSON.parse(window.localStorage.getItem("nameList")) || [];
+    const listOfMembersEl = document.getElementById("TeamMember");
+    var counter = 0;
+    for (member of nameList){
+        const memberEl = document.createElement("div");
+        memberEl.innerHTML = `<li>${nameList[counter]}</li>`;
+        listOfMembersEl.appendChild(memberEl);
+    }
+}
 
