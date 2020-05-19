@@ -4,64 +4,29 @@
 <head>
     <title> Kommentarer</title>
     <style>
-    label {font-weight: bold }
+        label {
+            font-weight: bold
+        }
+
     </style>
 </head>
 
-<script>
-     function renderMessageList() {
-    //Returns the enterd data in LocalStorage as a String
-    const messageList = JSON.parse(window.localStorage.getItem("messageList")) || [];
-    // parses the String into an object
-    const messageListEl = document.getElementById("messageList");
-    
-    messageListEl.innerHTML  = "";
-    for (const message of messageList) {
-        const messageEl = document.createElement("div");
-        const { name, comment } = message;
-        messageEl.innerHTML = `<h4>${name}</h4>
-                              <div>${comment}</div>`;
-        messageListEl.appendChild(messageEl);
-    }
- }
-   
-    function createNewComment(event) {
-
-        // HINDRER AT URL OPPDATERES
-        event.preventDefault();
-
-        const name = document.querySelector("[name='name']").value;
-        const comment = document.querySelector("[name='content']").value;
-
-        // EN SNARVEI FOR Å SKRIVE {NAME: NAME, COMMENT: COMMENT}
-        const message = {name,comment};
-  
-        const messageList = JSON.parse(window.localStorage.getItem("messageList")) || [];
-        messageList.push(message);
-        // LAGRER DATA I STORAGE TIL BROWSER
-        window.localStorage.setItem("messageList", JSON.stringify(messageList));
-       
-        
-        event.target.reset();
-    }
-     
-</script>
-
+<script type="text/javascript" src="Kommentarer.js"></script>
 
 
 <body>
     <div id="messageList" style="overflow-y:scroll;
         height:300px;
         width: 300px;
-        border: solid 3px;"> 
+        border: solid 3px;">
 
     </div>
     <div id="comment">
         <form onsubmit="createNewComment(event)">
             <div>
-               <label> Name:
+                <label> Name:
                     <div><input name="name" placeholder="Enter your name"></div>
-               </label>
+                </label>
             </div>
             <div>
                 <label> message:
@@ -73,16 +38,14 @@
             </div>
         </form>
     </div>
-
-<script>
-renderMessageList();
-
-window.addEventListener("storage", function(event) {
+    <script>
+    renderMessageList();
+window.addEventListener("storage", function (event) {
     if (event.key === "messageList") {
         renderMessageList();
     }
 });
+    </script>
+</body>
 
-
-</script>
-</body></html>
+</html>
