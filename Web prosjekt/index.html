@@ -1,0 +1,64 @@
+<html>
+    
+    
+<head>
+    
+<link rel="stylesheet" href="index.css">
+    
+</head>    
+    
+<body>
+    
+    <div class="MainContainer">
+    
+        <div id="Header">
+            <div id="ProjectName"></div>
+        </div>
+        
+        <div id="NavigationBar">
+            
+            <div id="Project" onclick="Page1()">
+                <h1 id="ProjectButton">Projects</h1>
+            </div>
+            
+            <div id="Comments" onclick="Page2()">
+                <h1 id="CommentsButton">Comments</h1>
+            </div>
+            
+            <div id="NavBarPage1"> page 1</div>
+            
+            <div id="NavBarPage2"> page 2</div>
+            
+        </div>
+        
+        <div id="MemberContainer">
+            
+            <div id="TeamMember">
+                <div id="MemberLogo"></div>
+                <h1 id="MemberName">Name</h1>
+            </div>
+            
+        </div>
+        
+        <div id="TaskContainer"></div>
+    
+    </div>
+    
+    <script>
+        
+    function Page1(){
+        document.getElementById("NavBarPage1").style.zIndex = "3";
+    }
+        
+    function Page2(){
+        document.getElementById("NavBarPage2").style.zIndex = "3";
+    }
+    
+    
+    
+    </script>
+
+</body>    
+    
+
+</html>
