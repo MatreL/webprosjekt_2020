@@ -18,7 +18,7 @@ function newTaskColumn() {
     
     
     
-    column.appendChild(currentDiv);
+    currentDiv.appendChild(column);
     
     }
     
