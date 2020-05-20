@@ -10,6 +10,8 @@ function newTaskColumn() {
     let column = document.createElement("div"); column.setAttribute("id", "column" + i);
     column.style.height = "200px";
     column.style.width = "100px";
+    column.style.margin = "30px";
+    column.style.float = "left";
     column.style.backgroundColor = colorStyleArray[i];
         
     column.innerHTML = "<h4>" + actionArray[i] + "</h4>";
