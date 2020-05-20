@@ -40,10 +40,31 @@
             
         </div>
         
-        <div id="TaskContainer"></div>
-    
+        <div id="TaskContainer">
+            <input type="button" id="openTaskCreatorButton" value="Add new task"/>
+        </div>
+
     </div>
-    
+
+    <div id="TaskFormContainer">
+        <input type="button" id="exitTaskFormButton" value="x"/>
+        <h4>Create new task</h4>
+        <form onsubmit="createNewTask(event)">
+            <input name="taskName" placeholder="Task title"/>
+            <br>
+            <input name="deadline" placeholder="deadline"/>
+            <br>
+            <input name="description" placeholder="description"/>
+            <br>
+            <input type="submit" value="submit"/>
+        </form>
+    </div>
+
+    <script src="../addMembers.js"></script>
+    <script src="../addTask.js"></script>
+    <script src="../createTaskColumn.js"></script>
+    <script src="../buttonEventHandler.js"></script>
+
     <script>
         
     function Page1(){
