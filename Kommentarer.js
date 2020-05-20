@@ -33,9 +33,10 @@ function createNewComment(event) {
     messageList.push(message);
     // LAGRER DATA I STORAGE TIL BROWSER
     window.localStorage.setItem("messageList", JSON.stringify(messageList));
-    
+    renderMessageList();
     event.target.reset();
 }
-    renderMessageList();
+   renderMessageList();
+    
 
 
