@@ -1,7 +1,5 @@
 <html>
 
-    test
-
 <head>
 
 <link rel="stylesheet" href="index.css">
@@ -28,7 +26,31 @@
 
             <div id="NavBarPage1"> page 1</div>
 
-            <div id="NavBarPage2"> page 2</div>
+            <div id="NavBarPage2"> 
+            
+            <div id="messageList"></div>
+        
+            <div id="comment">
+                <form onsubmit="createNewComment(event)">
+                    <div>
+                        <label> Name:
+                            <div><input name="name" placeholder="Enter your name"></div>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label> message:
+                            <div><textarea name="content" placeholder="Type your message here"></textarea></div>
+                        </label>
+                    </div>
+                <div>
+                    <input type="submit">
+                </div>
+                </form>
+         
+            </div>    
+                
+            </div>
 
         </div>
 
@@ -71,6 +93,7 @@
     <script src="../addTask.js"></script>
     <script src="../createTaskColumn.js"></script>
     <script src="../buttonEventHandler.js"></script>
+    <script src="../Kommentarer.js"></script>
 
     <script>
         let navBarP1 = document.getElementById("NavBarPage1");

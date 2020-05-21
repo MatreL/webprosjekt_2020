@@ -61,12 +61,32 @@ h1{
 
     width: 400px;
     height: 740px;
-    border-style: dotted;
+    border-style: solid;
     top: 150px;
     left: 20px;
     position: absolute;
     background-color: blueviolet;
 
+}
+
+#messageList{
+    
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 560px;
+    width: 380px;
+    border-style: hidden;
+    overflow: scroll;
+    
+}
+
+#comment{
+    
+    position: absolute;
+    top: 600px;
+    left: 130px;
+    
 }
 
 #Project{
