@@ -9,3 +9,15 @@ openTaskCreatorButton.onclick = function(){
 exitTaskFormButton.onclick = function () {
     taskFormContainer.style.display = "none";
 };
+
+const AddNewMemberButton = document.getElementById("addNewMemberButton");
+const exitMemberFormButton = document.getElementById("exitMemberFormButton");
+const memberFormConainer = document.getElementById("MemberFormConainer");
+
+AddNewMemberButton.onclick = function(){
+  memberFormConainer.style.display = "block";
+};
+
+exitMemberFormButton.onclick = function () {
+    memberFormConainer.style.display = "none";
+};
