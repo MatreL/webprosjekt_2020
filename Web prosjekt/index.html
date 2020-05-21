@@ -33,10 +33,9 @@
 
         <div id="MemberContainer">
 
-            <div id="TeamMember">
-                <div id="MemberLogo"></div>
-                <h1 id="MemberName">Name</h1>
-            </div>
+            <div id="MemberContainer">
+            <input type="button" id="addNewMemberButton" value="Member +">
+        </div>
 
         </div>
 
@@ -55,6 +54,17 @@
             <input name="deadline" placeholder="deadline"/>
             <br>
             <input name="description" placeholder="description"/>
+            <br>
+            <input type="submit" value="submit"/>
+        </form>
+    </div>
+    
+    <div id="MemberFormConainer">
+        <input type="button" id="exitMemberFormButton" value="x"/>
+        <h4>Add new Member</h4>
+        <form onsubmit="addNewMember(event)">
+            <input name="memberName" placeholder="Add a new team member"/>
+            <br>
             <br>
             <input type="submit" value="submit"/>
         </form>

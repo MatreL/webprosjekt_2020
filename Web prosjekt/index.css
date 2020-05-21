@@ -141,23 +141,36 @@ h1{
 
 }
 
-#MemberLogo{
-
-    height: 100px;
-    width: 100px;
-    top: 10px;
-    left: 20px;
-    position: absolute;
-    border-style: solid;
+#addNewMemberButton{
+    position: relative;
+    left: 440px;
+    top: 50px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    background-color: aliceblue;
-
 }
 
-#MemberName{
-    top: 110px;
-    left: 35px;
+#MemberFormConainer{
+    display: none;
     position: absolute;
+    width:400px;
+    height:200px;
+    text-align: center;
+    z-index: 3;
+    left: 50%;
+    margin-left: -400px;
+    top: 50%;
+    margin-top: -200px;
+    background-color: white;
+    border:2px solid black;
+}
+
+#exitMemberFormButton{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width:50px;
+    height:50px;
 }
 
 #TaskFormContainer{
