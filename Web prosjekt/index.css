@@ -115,6 +115,7 @@ h1{
     top: 410px;
     border-style: dotted;
     position: absolute;
+    overflow: auto;
 }
 
 #MemberContainer{

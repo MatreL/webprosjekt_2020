@@ -38,16 +38,21 @@ function renderColumns(){
     let currentDiv = document.getElementById("TaskContainer");
 
     for(i = 0; i < columnList.length; i++){
-        //generere bokser
-        let columnEl = document.createElement("div"); columnEl.setAttribute("id", "column" + i);
-        columnEl.style.height = "400px";
-        columnEl.style.width = "200px";
+        //generere kategori bokser
+        let columnEl = document.createElement("div"); columnEl.setAttribute("class", "taskColumns"); columnEl.setAttribute("id", "column" + i);
+        //header i boks med status/kategori
+        let columnHead = document.createElement("div"); columnHead.setAttribute("class", "taskHeader");
+        currentDiv.appendChild(columnEl);
+        columnEl.appendChild(columnHead);
+        //Styling av bokser
+        columnEl.style.height += renderTaskList.length * "50px";
+        columnEl.style.width = "300px";
         columnEl.style.margin = "30px";
         columnEl.style.float = "left";
         columnEl.style.backgroundColor = columnList[i].color;
+        //genererer headertext
+        columnHead.innerHTML = `<h4 class="headerText"> ${columnList[i].title} </h4>`;
 
-        columnEl.innerHTML = "<h4>" + columnList[i].title + "</h4>";
-
-        currentDiv.appendChild(columnEl);
+        
     }
 }
