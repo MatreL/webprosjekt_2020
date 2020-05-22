@@ -35,7 +35,6 @@ function renderTaskList() {
 
     let column = document.getElementById("column0");
 
-    column.innerHTML = "";
 
     for (const task of taskList) {
         const taskListEl = document.createElement("div");
