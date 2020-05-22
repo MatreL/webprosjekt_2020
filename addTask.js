@@ -34,7 +34,8 @@ function renderTaskList() {
     const taskList = JSON.parse(window.localStorage.getItem("taskList")) || [];
 
     let column = document.getElementById("column0");
-
+    
+    column.innerHTML = "";
 
     for (const task of taskList) {
         const taskListEl = document.createElement("div");
