@@ -1,0 +1,70 @@
+/* main container setup */
+
+.MainContainer{
+
+    /* size */
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    /* grid setup */
+    display: grid;
+    grid-template-columns: minmax(360px, 430px) minmax(360px, auto);
+    grid-template-rows: minmax(50px, 150px) minmax(480px,auto);
+    grid-gap: 1em;
+    /* style */
+    background-color: skyblue;
+
+}
+
+/*-------------------------------------------------------*/
+/* tags */
+
+h1{
+
+  	pointer-events: none;
+
+}
+
+/*-------------------------------------------------------*/
+/* id elements */
+
+#Header{
+
+    /* grid positioning */
+    grid-column: 1/3;
+    grid-row: 1/2;
+    /* grid setup */
+    display: grid;
+    grid-template-columns: minmax(350px, 420px) minmax(0, auto);
+    grid-template-rows: minmax(40px, 140px);
+    /* style */
+    border-style: solid;
+    background-color: dodgerblue;
+
+}
+
+#ProjectName{
+
+    /* grid positioning */
+    grid-column: 1/2;
+    grid-row: 1/2;
+    /* box positioning */
+    margin: 5px;
+    /* style */
+    border-style: dotted;
+
+}
+
+#NavigationBar{
+
+    /* grid positioning */
+    grid-column: 1/2;
+    grid-row: 2/4;
+    /* grid setup */
+    grid-template-columns: 40px;
+    grid-template-rows: 10px;
+    /* style */
+    border-style: solid;
+    background-color: grey;
+
+}
