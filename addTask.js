@@ -33,7 +33,7 @@ function renderTaskList() {
 
     const taskList = JSON.parse(window.localStorage.getItem("taskList")) || [];
 
-    let column = document.getElementById("column0");
+    let column = document.getElementById("taskDiv0");
     
     column.innerHTML = "";
 
