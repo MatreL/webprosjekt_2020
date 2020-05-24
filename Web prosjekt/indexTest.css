@@ -6,8 +6,8 @@ body{
   margin: 0px;
   /* grid setup */
   display: grid;
-  grid-template-columns: minmax(360px, 430px) minmax(360px, 430px) minmax(360px, 430px) minmax(0px,10%);
-  grid-template-rows: minmax(40px, 100px) minmax(50px, 100px) 1fr 1fr;
+  grid-template-columns: 430px 430px 430px minmax(0px,10%);
+  grid-template-rows: 100px 100px 1fr 1fr;
   grid-gap: 1em;
   /* positioning */
   z-index: 0;
@@ -22,11 +22,11 @@ body{
     margin: 0px;
     /* grid size */
     grid-column: 1/5;
-    grid-row: 1/4;
+    grid-row: 1/5;
     /* grid setup */
     display: grid;
-    grid-template-columns: minmax(360px, 430px) minmax(360px, 430px) minmax(360px, 430px) minmax(0px,10%);
-    grid-template-rows: minmax(40px, 100px) minmax(50px, 100px) 1fr 1fr;
+    grid-template-columns: 430px 430px 430px minmax(0px,10%);
+    grid-template-rows: 100px 100px 1fr 1fr;
     grid-gap: 1em;
     /* positioning */
     z-index: 0;
@@ -51,14 +51,31 @@ h1{
 
 /* body grid elements */
 
+/* task container elements */
+#TaskFormContainer{
+
+    /* positioning */
+    z-index: 1;
+    /* grid positioning */
+    grid-column: 3/4;
+    grid-row: 3/4;
+    /* style */
+    display: none;
+    text-align: center;
+    background-color: white;
+    border:2px solid black;
+}
+
+
+
 /* member form elements */
 #MemberFormConainer{
 
     /* positioning */
-    z-index: 3;
+    z-index: 1;
     /* grid positioning */
-    grid-column: 3/4;
-    grid-row: 2/4;
+    grid-column: 2/3;
+    grid-row: 3/4;
     /* style */
     display: none;
     text-align: center;
@@ -77,8 +94,8 @@ h1{
     grid-row: 1/2;
     /* grid setup */
     display: grid;
-    grid-template-columns: minmax(350px, 420px) minmax(0, auto);
-    grid-template-rows: minmax(30px, 90px);
+    grid-template-columns: 420px minmax(0, auto);
+    grid-template-rows: 90px;
     /* style */
     border-style: solid;
     background-color: dodgerblue;
@@ -115,6 +132,8 @@ h1{
 
 #Project{
 
+    /* positioning */
+    z-index: 1;
     /* size */
     margin: 10px;
     /* grid positioning */
@@ -127,15 +146,22 @@ h1{
 
 }
 
-#ProjectButton{
+#NavBarpage1{
 
-    top: 8px;
-    left: 35px;
+    /* positioning */
+    z-index: 0;
+    /* grid positioning */
+    grid-column: 1/3;
+    grid-row: 2/3;
+    /* style */
+    border-style: dotted;
+    background-color: aqua;
 
 }
 
 #comments{
-
+    /* positioning */
+    z-index: 1;
     /* size */
     margin: 10px;
     /* grid positioning */
@@ -147,6 +173,27 @@ h1{
 
 }
 
+#NavBarpage2{
+
+    /* positioning */
+    z-index: 0;
+    /* grid positioning */
+    grid-column: 1/3;
+    grid-row: 2/3;
+    /* style */
+    border-style: solid;
+    background-color: blueviolet;
+
+}
+
+#comment{
+
+    position: absolute;
+    top: 600px;
+    left: 130px;
+
+}
+
 /* member elements */
 /* this is sepparate from the "member form elements" */
 #MemberContainer{
@@ -155,7 +202,7 @@ h1{
     z-index: 1;
     /* grid setup */
     display: grid;
-    grid-template-columns: repeat(3, 1fr) minmax(40px,90px);
+    grid-template-columns: repeat(3, 1fr) 90px;
     grid-auto-rows: 1fr;
     /* grid positioning */
     grid-column: 2/3;
@@ -167,8 +214,11 @@ h1{
 }
 
 #newMemberDiv{
+  /* grid size */
     grid-column: 1/2;
     grid-row: 1/2;
+    /* style */
+    overflow: auto;
 }
 
 #addNewMemberButton{
