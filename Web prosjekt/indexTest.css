@@ -6,8 +6,8 @@ body{
   margin: 0px;
   /* grid setup */
   display: grid;
-  grid-template-columns: minmax(360px, 430px) 1fr 1fr minmax(0px,10%);
-  grid-template-rows: minmax(40px, 100px) minmax(50px, 100px) 1fr;
+  grid-template-columns: minmax(360px, 430px) minmax(360px, 430px) minmax(360px, 430px) minmax(0px,10%);
+  grid-template-rows: minmax(40px, 100px) minmax(50px, 100px) 1fr 1fr;
   grid-gap: 1em;
   /* positioning */
   z-index: 0;
@@ -22,11 +22,11 @@ body{
     margin: 0px;
     /* grid size */
     grid-column: 1/5;
-    grid-row: 1/5;
+    grid-row: 1/4;
     /* grid setup */
     display: grid;
-    grid-template-columns: minmax(360px, 430px) 1fr 1fr minmax(0px,10%);
-    grid-template-rows: minmax(40px, 100px) minmax(50px, 100px) 1fr;
+    grid-template-columns: minmax(360px, 430px) minmax(360px, 430px) minmax(360px, 430px) minmax(0px,10%);
+    grid-template-rows: minmax(40px, 100px) minmax(50px, 100px) 1fr 1fr;
     grid-gap: 1em;
     /* positioning */
     z-index: 0;
@@ -58,7 +58,7 @@ h1{
     z-index: 3;
     /* grid positioning */
     grid-column: 3/4;
-    grid-row: 2/5;
+    grid-row: 2/4;
     /* style */
     display: none;
     text-align: center;
@@ -106,10 +106,44 @@ h1{
     /* grid setup */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 100px 1fr;
     /* style */
     border-style: solid;
     background-color: grey;
+
+}
+
+#Project{
+
+    /* size */
+    margin: 10px;
+    /* grid positioning */
+    grid-column: 1/2;
+    grid-row: 1/2;
+    /* style */
+    border-style: solid;
+    background-color: dimgrey;
+    text-align: center;
+
+}
+
+#ProjectButton{
+
+    top: 8px;
+    left: 35px;
+
+}
+
+#comments{
+
+    /* size */
+    margin: 10px;
+    /* grid positioning */
+    grid-column: 2/3;
+    grid-row: 1/2;
+    /* style */
+    border-style:solid;
+    background-color: dimgrey;
 
 }
 
@@ -119,6 +153,10 @@ h1{
 
     /* positioning */
     z-index: 1;
+    /* grid setup */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) minmax(40px,90px);
+    grid-auto-rows: 1fr;
     /* grid positioning */
     grid-column: 2/3;
     grid-row: 2/3;
@@ -129,23 +167,17 @@ h1{
 }
 
 #newMemberDiv{
-
-    height: 220px;
-    width: 470px;
-    position: absolute;
-    float: left;
-    overflow: auto;
-
+    grid-column: 1/2;
+    grid-row: 1/2;
 }
 
 #addNewMemberButton{
 
-    /* positioning */
-    float: right;
-
     /* size */
-    width: 80px;
-    height: 80px;
+    margin: 5px;
+    /* grid size */
+    grid-column: 4/5;
+    grid-row: 1/2;
     /* style */
     border-radius: 50%;
 
