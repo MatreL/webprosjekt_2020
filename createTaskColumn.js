@@ -38,7 +38,7 @@ function renderColumns(){
     let currentDiv = document.getElementById("TaskContainer");
 
     for(i = 0; i < columnList.length; i++){
-        
+
         //generere kategori bokser
         let columnEl = document.createElement("div"); columnEl.setAttribute("class", "taskColumns"); columnEl.setAttribute("id", "column" + i);
 
@@ -51,14 +51,12 @@ function renderColumns(){
         columnTask.setAttribute("id", "taskDiv" + i);
         columnEl.appendChild(columnTask);
         //Styling av bokser
-        columnEl.style.height += renderTaskList.length * "50px";
-        columnEl.style.width = "300px";
-        columnEl.style.margin = "30px";
-        columnEl.style.float = "left";
+        columnEl.style.gridColumn = `${i + 1}/${i + 2}`;
+        columnEl.style.gridRow = "2/3";
         columnEl.style.backgroundColor = columnList[i].color;
         //genererer headertext
         columnHead.innerHTML = `<h4 class="headerText"> ${columnList[i].title} </h4>`;
 
-        
+
     }
 }

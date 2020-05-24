@@ -1,18 +1,26 @@
 /* body setup */
 body{
+
   /* size */
   width: 100vw;
   height: 100vh;
   margin: 0px;
+  /* positioning */
+  z-index: 0;
   /* grid setup */
   display: grid;
   grid-template-columns: 430px 430px 430px minmax(0px,10%);
-  grid-template-rows: 100px 100px 1fr 1fr;
+  grid-template-rows: 100px 100px 1fr 1em;
   grid-gap: 1em;
-  /* positioning */
-  z-index: 0;
+  /* grid elements positioning */
+  grid-template-areas:
+  ". . . . "
+  ". . . . "
+  " . bodyMember bodyTask . "
+  ". . . . ";
   /* style */
   background-color: skyblue;
+
 }
 
 /* main container setup */
@@ -20,19 +28,24 @@ body{
 
     /* size */
     margin: 0px;
+    /* positioning */
+    z-index: 0;
     /* grid size */
     grid-column: 1/5;
     grid-row: 1/5;
     /* grid setup */
     display: grid;
     grid-template-columns: 430px 430px 430px minmax(0px,10%);
-    grid-template-rows: 100px 100px 1fr 1fr;
+    grid-template-rows: 100px 100px 1fr 1em;
     grid-gap: 1em;
-    /* positioning */
-    z-index: 0;
+    /* grid elements positioning */
+    grid-template-areas:
+    "mainContainerHeader mainContainerHeader mainContainerHeader mainContainerHeader"
+    "mainContainerNavBar . . ."
+    "mainContainerNavBar mainContainerTask mainContainerTask ."
+    "mainContainerNavBar . . .";
     /* style */
     background-color: skyblue;
-
 
 }
 
@@ -56,14 +69,14 @@ h1{
 
     /* positioning */
     z-index: 1;
-    /* grid positioning */
-    grid-column: 3/4;
-    grid-row: 3/4;
+    /* grid area */
+    grid-area: bodyTask;
     /* style */
     display: none;
     text-align: center;
     background-color: white;
     border:2px solid black;
+
 }
 
 
@@ -73,9 +86,8 @@ h1{
 
     /* positioning */
     z-index: 1;
-    /* grid positioning */
-    grid-column: 2/3;
-    grid-row: 3/4;
+    /* grid area */
+    grid-area: bodyMember;
     /* style */
     display: none;
     text-align: center;
@@ -89,9 +101,10 @@ h1{
 /* header elements */
 #Header{
 
-    /* grid positioning */
-    grid-column: 1/5;
-    grid-row: 1/2;
+    /* positioning */
+    z-index: 0;
+    /* grid area */
+    grid-area: mainContainerHeader;
     /* grid setup */
     display: grid;
     grid-template-columns: 420px minmax(0, auto);
@@ -104,6 +117,10 @@ h1{
 
 #ProjectName{
 
+    /* positioning */
+    z-index: 0;
+    /* grid area */
+    grid-area: mainContainerProjectname;
     /* grid positioning */
     grid-column: 1/2;
     grid-row: 1/2;
@@ -117,19 +134,19 @@ h1{
 /* NavigationBar elements */
 #NavigationBar{
 
-    /* grid positioning */
-    grid-column: 1/2;
-    grid-row: 2/5;
+    /* positioning */
+    z-index: 0;
+    /* grid area */
+    grid-area: mainContainerNavBar;
     /* grid setup */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 100px 1fr 200px;
     /* style */
     border-style: solid;
     background-color: grey;
 
 }
-
 #Project{
 
     /* positioning */
@@ -145,11 +162,12 @@ h1{
     text-align: center;
 
 }
-
 #NavBarpage1{
 
     /* positioning */
     z-index: 0;
+    /* size */
+    margin: 15px;
     /* grid positioning */
     grid-column: 1/3;
     grid-row: 2/3;
@@ -158,8 +176,8 @@ h1{
     background-color: aqua;
 
 }
-
 #comments{
+
     /* positioning */
     z-index: 1;
     /* size */
@@ -170,13 +188,15 @@ h1{
     /* style */
     border-style:solid;
     background-color: dimgrey;
+    text-align: center;
 
 }
-
 #NavBarpage2{
 
     /* positioning */
     z-index: 0;
+    /* size */
+    margin: 15px;
     /* grid positioning */
     grid-column: 1/3;
     grid-row: 2/3;
@@ -185,12 +205,13 @@ h1{
     background-color: blueviolet;
 
 }
-
 #comment{
 
-    position: absolute;
-    top: 600px;
-    left: 130px;
+    /* positioning */
+    z-index: 1;
+    /* grid positioning */
+    grid-column: 1/3;
+    grid-row: 3/4;
 
 }
 
@@ -212,15 +233,15 @@ h1{
     background-color: cornflowerblue;
 
 }
-
 #newMemberDiv{
+
   /* grid size */
-    grid-column: 1/2;
+    grid-column: 1/3;
     grid-row: 1/2;
     /* style */
-    overflow: auto;
-}
+    overflow: scroll;
 
+}
 #addNewMemberButton{
 
     /* size */
@@ -231,4 +252,28 @@ h1{
     /* style */
     border-radius: 50%;
 
+}
+
+/* TaskContainer elements */
+#TaskContainer{
+
+    /* positioning */
+    z-index: 0;
+    /* grid setup */
+    display: grid;
+    grid-auto-columns: 200px;
+    grid-template-rows: 25px 1fr;
+    grid-column-gap: 1em;
+    /* grid area */
+    grid-area: mainContainerTask;
+    /* style */
+    border-style: dotted;
+
+}
+#openTaskCreatorButton{
+    /* position */
+    z-index: 0;
+    /* grid positioning */
+    grid-column: 1/2;
+    grid-row: 1/2;
 }
