@@ -6,6 +6,7 @@ function createNewTask(event){
     const taskName = document.querySelector("[name = 'taskName']").value;
     const deadline = document.querySelector("[name = 'deadline']").value;
     const description = document.querySelector("[name = 'description']").value;
+    const fileName = document.querySelector("[name = 'fileName']").value;
     const members = [];
 
     // Creating object "task" from the values gotten from the html form
@@ -13,6 +14,7 @@ function createNewTask(event){
         taskName,
         deadline,
         description,
+        fileName,
         members
     };
 
@@ -44,7 +46,7 @@ function renderTaskList() {
         const taskEl = document.createElement("div");
         const taskElMembers = document.createElement("div");
         //Splitting up the object "task", into seperate variables
-        const {taskName, deadline, description, members} = task;
+        const {taskName, deadline, description, fileName, members} = task;
         
         const option = document.createElement("option");
         option.text = taskName;
@@ -54,6 +56,7 @@ function renderTaskList() {
         taskEl.innerHTML = `
             <h4>${taskName}</h4>
             <p>${description}</p>
+            <p>${fileName}</p>
             <p>${deadline}</p>
         `;
 
