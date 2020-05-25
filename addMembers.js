@@ -1,3 +1,5 @@
+memberElement();
+
 //Funksjon for å legge verdier inn i localstorage
 function addNewMember(event) {
     
@@ -49,6 +51,8 @@ function memberElement(){
         memberListEl.style.textAlign = "center";
         memberListEl.style.float = "left";
         memberListEl.style.margin = "3px";
+        
+        memberListEl.draggable = true;
         
         
         memberListEl.appendChild(memberEl);
