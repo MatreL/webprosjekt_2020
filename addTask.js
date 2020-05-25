@@ -10,12 +10,12 @@ function createNewTask(event){
     const members = [];
 
     // Creating object "task" from the values gotten from the html form
-    const task = {
+    let task = {
         taskName,
         deadline,
         description,
         fileName,
-        members
+        members,
     };
 
     //crating an array "tasklist", and push it into localstorage
@@ -26,6 +26,10 @@ function createNewTask(event){
     //Resets the form in the html
     event.target.reset();
 
+    // Getting tasks from the column objects in "createTaskColumn.js" inserting tasks
+    const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
+    columnList[0].tasks.push(task);
+    window.localStorage.setItem("columnList", JSON.stringify(columnList));
     renderTaskList();
 }
 
@@ -33,45 +37,68 @@ function createNewTask(event){
 //Getting the array "taskList" from localstorage and creating html elements with its contents
 function renderTaskList() {
 
-    const taskList = JSON.parse(window.localStorage.getItem("taskList")) || [];
-    
+    const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
+
     const taskSelectEl = document.getElementById("taskSelect");
 
-    let column = document.getElementById("taskDiv0");
-    
-    column.innerHTML = "";
+    for(let i = 0; i < columnList.length; i++){
 
-    for (const task of taskList) {
-        const taskListEl = document.createElement("div");
-        const taskEl = document.createElement("div");
-        const taskElMembers = document.createElement("div");
-        //Splitting up the object "task", into seperate variables
-        const {taskName, deadline, description, fileName, members} = task;
-        
-        const option = document.createElement("option");
-        option.text = taskName;
-        taskSelectEl.appendChild(option);
+        const taskList = columnList[i].tasks;
 
-        //Adding values to the innerHtml
-        taskEl.innerHTML = `
+        let column = document.getElementById(`taskDiv${i}`);
+
+        column.innerHTML = "";
+
+        let j = 0;
+        for (const task of taskList) {
+
+            const taskListEl = document.createElement("div");
+            const taskEl = document.createElement("div");
+            const taskElMembers = document.createElement("div");
+            //Splitting up the object "task", into seperate variables
+            const {taskName, deadline, description, fileName, members} = task;
+
+            const option = document.createElement("option");
+            option.text = taskName;
+            taskSelectEl.appendChild(option);
+
+            //Adding values to the innerHtml
+            taskEl.innerHTML = `
             <h4>${taskName}</h4>
             <p>${description}</p>
             <p>${fileName}</p>
             <p>${deadline}</p>
         `;
 
-        taskElMembers.innerHTML = `
+            taskElMembers.innerHTML = `
             <div>${members}<div/>
+            
         `;
 
         taskListEl.style.width = "auto";
         taskListEl.style.width = "auto";
         taskListEl.style.textAlign = "center";
         taskListEl.style.backgroundColor = "cornflowerblue";
+        taskListEl.value = j;
+        j++;
+
+        taskListEl.draggable = true;
+        taskListEl.ondragstart = event => handleDragStart(event, task);
 
         taskListEl.appendChild(taskEl);
         taskListEl.appendChild(taskElMembers);
 
         column.appendChild(taskListEl);
+        }
     }
+}
+
+function handleDragStart(event, task){
+    const tempTask = [];
+    tempTask.push(task);
+    window.localStorage.setItem("tempTask", JSON.stringify(tempTask));
+    const taskIndex = event.target.value;
+    window.localStorage.setItem("taskIndex", JSON.stringify(taskIndex));
+    const lastColumnID = event.target.parentNode.parentNode.id;
+    window.localStorage.setItem("lastColumnID", JSON.stringify(lastColumnID));
 }
