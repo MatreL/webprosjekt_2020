@@ -20,7 +20,7 @@ body{
   " . . . . "
   " . . . . ";
   /* style */
-  background-color: skyblue;
+  background-color: steelblue;
 
 }
 
@@ -47,7 +47,7 @@ body{
     "mainContainerNavBar mainContainerTask mainContainerTask . "
     "mainContainerNavBar . . . ";
     /* style */
-    background-color: skyblue;
+    background-color: steelblue;
 
 }
 
@@ -113,7 +113,7 @@ h1{
     grid-template-rows: 90px;
     /* style */
     border-style: solid;
-    background-color: dodgerblue;
+    background-color: navy;
 
 }
 
@@ -175,7 +175,7 @@ h1{
     grid-row: 2/3;
     /* style */
     border-style: dotted;
-    background-color: aqua;
+    background-color: cadetblue;
 
 }
 #comments{
@@ -204,7 +204,7 @@ h1{
     grid-row: 2/3;
     /* style */
     border-style: solid;
-    background-color: blueviolet;
+    background-color: mediumpurple;
 
 }
 #comment{
@@ -232,7 +232,7 @@ h1{
     grid-row: 2/3;
     /* style */
     border-style: solid;
-    background-color: cornflowerblue;
+    background-color: steelblue;
 
 }
 #newMemberDiv{
@@ -242,6 +242,7 @@ h1{
     grid-row: 1/2;
     /* style */
     overflow: scroll;
+   
 
 }
 #addNewMemberButton{
@@ -253,6 +254,7 @@ h1{
     grid-row: 1/2;
     /* style */
     border-radius: 50%;
+    background-color: indianred;
 
 }
 
@@ -278,4 +280,5 @@ h1{
     /* grid positioning */
     grid-column: 1/2;
     grid-row: 1/2;
+    background-color: indianred;
 }

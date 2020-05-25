@@ -12,15 +12,15 @@ if(!isFunctionCalled){
 function newTaskColumn() {
     const column1 = {
         title: "To Do",
-        color: "blue"
+        color: "lightskyblue"
     };
     const column2 = {
         title: "Doing",
-        color: "yellow"
+        color: "khaki"
     };
     const column3 = {
       title: "Done",
-      color: "green"
+      color: "mediumaquamarine"
     };
 
     const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
