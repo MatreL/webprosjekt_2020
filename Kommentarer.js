@@ -10,9 +10,14 @@ function renderMessageList() {
         const messageEl = document.createElement("div");
         const {name,taskName,comment} = message;
         messageEl.innerHTML = `
-        <h4>${name},\u00A0\u00A0 ${taskName}</h4>
-        <div>${comment}</div>`;
+        <h4>\u00A0\u00A0${name},\u00A0\u00A0 ${taskName}</h4>
+        <div>\u00A0\u00A0${comment}</div>
+        <br>`;
         messageListEl.appendChild(messageEl);
+        
+        messageEl.style.margin = "8px";
+        messageEl.style.border = "1px dashed white";
+        messageListEl.style.margin = "1px";
     }
 }
 

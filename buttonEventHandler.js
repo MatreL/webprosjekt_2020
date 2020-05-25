@@ -21,3 +21,16 @@ AddNewMemberButton.onclick = function(){
 exitMemberFormButton.onclick = function () {
     memberFormConainer.style.display = "none";
 };
+
+let navBarP1 = document.getElementById("NavBarPage1");
+let navBarP2 = document.getElementById("NavBarPage2");
+
+function Page1(){
+    navBarP1.style.visibility = "";
+    navBarP2.style.visibility = "hidden";
+    }
+
+function Page2(){
+    navBarP2.style.visibility = "";
+    navBarP1.style.visibility = "hidden";
+      }

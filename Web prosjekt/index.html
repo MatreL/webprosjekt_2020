@@ -18,13 +18,18 @@
 
             <div id="Project" onclick="Page1()">
                 <h1 id="ProjectButton">Projects</h1>
+                
             </div>
 
             <div id="Comments" onclick="Page2()">
                 <h1 id="CommentsButton">Comments</h1>
             </div>
 
-            <div id="NavBarPage1"> page 1</div>
+            <div id="NavBarPage1"> page 1
+            
+                <input type="button" id="projectBtn" value="Opprett nytt prosjekt">
+                
+            </div>
 
             <div id="NavBarPage2">
 
@@ -104,21 +109,6 @@
     <script src="../createTaskColumn.js"></script>
     <script src="../buttonEventHandler.js"></script>
     <script src="../Kommentarer.js"></script>
-
-    <script>
-        let navBarP1 = document.getElementById("NavBarPage1");
-        let navBarP2 = document.getElementById("NavBarPage2");
-
-    function Page1(){
-      navBarP1.style.zIndex = "3";
-      navBarP2.style.zIndex = "0";
-    }
-
-    function Page2(){
-        navBarP2.style.zIndex = "3";
-        navBarP1.style.zIndex = "0";
-      }
-    </script>
 
 </body>
 
