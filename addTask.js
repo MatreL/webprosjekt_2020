@@ -61,8 +61,9 @@ function renderTaskList() {
             <div>${members}<div/>
         `;
 
-        taskListEl.style.width = "180px";
-        taskListEl.style.width = "80px";
+        taskListEl.style.width = "auto";
+        taskListEl.style.width = "auto";
+        taskListEl.style.textAlign = "center";
         taskListEl.style.backgroundColor = "white";
 
         taskListEl.appendChild(taskEl);

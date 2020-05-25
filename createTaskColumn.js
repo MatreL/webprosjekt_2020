@@ -56,6 +56,8 @@ function renderColumns(){
         columnEl.style.overflowY = "scroll";
         columnEl.style.margin = "1em";
         columnEl.style.backgroundColor = columnList[i].color;
+        
+        columnHead.style.textAlign ="center";
         //genererer headertext
         columnHead.innerHTML = `<h4 class="headerText"> ${columnList[i].title} </h4>`;
 
