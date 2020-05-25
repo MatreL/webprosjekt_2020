@@ -32,6 +32,8 @@ function createNewTask(event){
 function renderTaskList() {
 
     const taskList = JSON.parse(window.localStorage.getItem("taskList")) || [];
+    
+    const taskSelectEl = document.getElementById("taskSelect");
 
     let column = document.getElementById("taskDiv0");
     
@@ -43,6 +45,10 @@ function renderTaskList() {
         const taskElMembers = document.createElement("div");
         //Splitting up the object "task", into seperate variables
         const {taskName, deadline, description, members} = task;
+        
+        const option = document.createElement("option");
+        option.text = taskName;
+        taskSelectEl.appendChild(option);
 
         //Adding values to the innerHtml
         taskEl.innerHTML = `
@@ -55,8 +61,9 @@ function renderTaskList() {
             <div>${members}<div/>
         `;
 
-        taskListEl.style.width = "180px";
-        taskListEl.style.width = "80px";
+        taskListEl.style.width = "auto";
+        taskListEl.style.width = "auto";
+        taskListEl.style.textAlign = "center";
         taskListEl.style.backgroundColor = "white";
 
         taskListEl.appendChild(taskEl);
