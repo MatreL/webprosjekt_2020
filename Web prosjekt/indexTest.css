@@ -51,7 +51,7 @@ body{
   "mainContainerTask mainContainerTask mainContainerTask . "
   " . . . . ";
   /* style */
-  background-color: steelblue;
+  background-color: lightblue;
 
 }
 
@@ -80,7 +80,7 @@ body{
     " . . . . ";
 
     /* style */
-    background-color: steelblue;
+    background-color: lightblue;
 
   }
 
@@ -107,7 +107,7 @@ body{
     "mainContainerNavBar mainContainerTask mainContainerTask . "
     "mainContainerNavBar . . . ";
     /* style */
-    background-color: steelblue;
+    background-color: whitesmoke;
 
   }
 }
@@ -177,7 +177,7 @@ h1{
     grid-template-rows: 90px;
     /* style */
     border-style: solid;
-    background-color: navy;
+    background-color: wheat;
 
 }
 
@@ -189,9 +189,12 @@ h1{
     grid-column: 1/2;
     grid-row: 1/2;
     /* size */
-    margin: 5px;
+    margin: 15px;
     /* style */
-    border-style: dotted;
+    border-style: solid;
+    border-width: thin;
+    box-shadow: 2px 2px 8px;
+    background-color: beige;
 
 }
 
@@ -208,7 +211,7 @@ h1{
     grid-template-rows: 100px 1fr;
     /* style */
     border-style: solid;
-    background-color: grey;
+    background-color: wheat;
 
 }
 #Project{
@@ -222,7 +225,9 @@ h1{
     grid-row: 1/2;
     /* style */
     border-style: solid;
-    background-color: dimgrey;
+    border-width: thin;
+    box-shadow: 2px 2px 8px;
+    background-color: beige;
     text-align: center;
 
 }
@@ -236,7 +241,9 @@ h1{
     grid-column: 1/3;
     grid-row: 2/3;
     /* style */
-    border-style: dotted;
+    border-style: solid;
+    border-width: thin;
+    box-shadow: 2px 2px 8px;
     background-color: cadetblue;
 
 }
@@ -251,7 +258,9 @@ h1{
     grid-row: 1/2;
     /* style */
     border-style:solid;
-    background-color: dimgrey;
+    border-width: thin;
+    box-shadow: 2px 2px 8px;
+    background-color: beige;
     text-align: center;
 
 }
@@ -271,7 +280,9 @@ h1{
     /* style */
     overflow: hidden;
     border-style: solid;
-    background-color: blueviolet;
+    border-width: thin;
+    box-shadow: 2px 2px 8px;
+    background-color: beige;
 
 }
 #messageList{
@@ -322,8 +333,7 @@ h1{
     /* grid positioning */
     grid-area: mainContainerMembers;
     /* style */
-    border-style: solid;
-    background-color: steelblue;
+    border-style: hidden;
 
 }
 #newMemberDiv{
@@ -345,7 +355,9 @@ h1{
     grid-row: 1/2;
     /* style */
     border-radius: 50%;
-    background-color: indianred;
+    background-color: lawngreen;
+    border-width: thin;
+    box-shadow: 2px 2px 5px;
 
 }
 
@@ -362,7 +374,7 @@ h1{
     grid-area: mainContainerTask;
     /* style */
     overflow-x: scroll;
-    border-style: dotted;
+    border-style: hidden;
 
 }
 #openTaskCreatorButton{
@@ -371,5 +383,5 @@ h1{
     /* grid positioning */
     grid-column: 1/2;
     grid-row: 1/2;
-    background-color: indianred;
+    background-color: lawngreen;
 }
