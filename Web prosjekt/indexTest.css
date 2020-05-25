@@ -144,8 +144,6 @@ h1{
     box-shadow: 3px 3px 3px #00000077;
 }
 
-
-
 /* member form elements */
 #MemberFormConainer{
 
@@ -294,6 +292,20 @@ h1{
     /* grid positioning */
     grid-column: 2/3;
     grid-row: 3/4;
+
+}
+
+#memberSelect{
+
+    /* size */
+    width: 100%;
+
+}
+
+#taskSelect{
+
+    /* size */
+    width: 100%;
 
 }
 
