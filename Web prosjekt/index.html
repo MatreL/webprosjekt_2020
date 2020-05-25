@@ -34,7 +34,13 @@
                 <form onsubmit="createNewComment(event)">
                     <div>
                         <label> Name:
-                            <div><input name="name" placeholder="Enter your name"></div>
+                            <select name="mName" id="memberSelect"></select>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label> Task: 
+                            <select name="tName" id="taskSelect"></select>
                         </label>
                     </div>
 
@@ -74,7 +80,7 @@
         <form onsubmit="createNewTask(event)">
             <input name="taskName" placeholder="Task title"/>
             <br>
-                <input name="deadline" type="datetime-local"/>
+            <input name="deadline" placeholder="deadline"/>
             <br>
             <input name="description" placeholder="description"/>
             <br>
