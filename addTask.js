@@ -67,7 +67,7 @@ function renderTaskList() {
         taskListEl.style.width = "auto";
         taskListEl.style.width = "auto";
         taskListEl.style.textAlign = "center";
-        taskListEl.style.backgroundColor = "white";
+        taskListEl.style.backgroundColor = "cornflowerblue";
 
         taskListEl.appendChild(taskEl);
         taskListEl.appendChild(taskElMembers);
