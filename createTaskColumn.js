@@ -93,7 +93,6 @@ function renderColumns() {
         columnEl.style.gridColumn = `${i + 1}/${i + 2}`;
         columnEl.style.gridRow = "2/3";
         columnEl.style.overflowY = "scroll";
-        columnEl.style.margin = "1em";
         columnEl.style.backgroundColor = columnList[i].color;
 
         columnHead.style.textAlign = "center";

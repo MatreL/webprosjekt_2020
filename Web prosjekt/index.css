@@ -454,6 +454,7 @@ h1{
     display: grid;
     grid-auto-columns: 250px;
     grid-template-rows: 25px 1fr;
+    grid-gap: 1em;
     /* grid area */
     grid-area: mainContainerTask;
     /* style */
