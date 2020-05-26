@@ -47,8 +47,6 @@ function renderTaskList() {
 
         let column = document.getElementById(`taskDiv${i}`);
 
-        console.log(columnList[i]);
-
         column.innerHTML = "";
 
         let j = 0;
