@@ -7,7 +7,7 @@ function createNewTask(event){
     const deadline = document.querySelector("[name = 'deadline']").value;
     const description = document.querySelector("[name = 'description']").value;
     const fileName = document.querySelector("[name = 'fileName']").value;
-    const members = [];
+    const members = document.querySelector("[name = 'member']").value;
 
     // Creating object "task" from the values gotten from the html form
     let task = {

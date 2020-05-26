@@ -26,7 +26,12 @@ function memberElement(){
     let memberDiv = document.getElementById("newMemberDiv");
     memberDiv.innerHTML = "";
     
-    const memberSelectEl = document.getElementById("memberSelect");
+    let memberSelectEl = document.getElementById("memberSelect");
+    memberSelectEl.innerHTML ="";
+    
+    
+    let taskMemberSelectEl = document.getElementById("taskMemberSelect");
+    taskMemberSelectEl.innerHTML ="";
 
     
     for (const member of nameList){
@@ -38,6 +43,10 @@ function memberElement(){
         const option = document.createElement("option");
         option.text = memberName;
         memberSelectEl.appendChild(option);
+        
+        const taskMemberOption = document.createElement("option");
+        taskMemberOption.text = memberName;
+        taskMemberSelectEl.appendChild(taskMemberOption);
     
         
         
