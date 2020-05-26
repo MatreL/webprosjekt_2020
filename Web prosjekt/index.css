@@ -189,17 +189,9 @@ h1{
 
 /* column form elements */
 #columnFormContainer{
-
-    /* position */
     z-index: 1;
     /* grid area */
     grid-area: bodyColumn;
-
-}
-#columnFormContainer{
-    z-index: 1;
-    /* grid area */
-    grid-area: bodyTask;
     /* style */
     display: none;
     text-align: center;
@@ -228,7 +220,6 @@ h1{
     background-color: #265077;
 
 }
-
 #ProjectName{
 
     /* positioning */
@@ -378,6 +369,27 @@ h1{
     grid-row: 3/4;
 
 }
+#commentButton{
+
+    /* position */
+    z-index: 0;
+    /* grid positioning */
+    grid-column: 2/3;
+    grid-row: 1/2;
+    /* style */
+    border-width: thin;
+    border-color: #494B68;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #022140;
+    background-color: #2D5F5D;
+    /* text style */
+    font-size: 1em;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-shadow: 0px 0px 2px #222222;
+    color: #FFFFFF;
+
+}
 #memberSelect{
 
     /* size */
@@ -457,6 +469,12 @@ h1{
     overflow-x: scroll;
     border-style: hidden;
     background-color: #265077;
+    /* text style */
+    font-size: 17px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-shadow: 0px 0px 2px #222222;
+    color: #FFFFFF;
 
 }
 #openTaskCreatorButton{
@@ -465,5 +483,38 @@ h1{
     /* grid positioning */
     grid-column: 1/2;
     grid-row: 1/2;
-    background-color: lawngreen;
+    /* style */
+    border-width: thin;
+    border-color: #494B68;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #022140;
+    background-color: #2D5F5D;
+    /* text style */
+    font-size: 1em;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-shadow: 0px 0px 2px #222222;
+    color: #FFFFFF;
+
+}
+#addCustomColumnButton{
+
+  /* position */
+  z-index: 0;
+  /* grid positioning */
+  grid-column: 2/3;
+  grid-row: 1/2;
+  /* style */
+  border-width: thin;
+  border-color: #494B68;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #022140;
+  background-color: #2D5F5D;
+  /* text style */
+  font-size: 1em;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-shadow: 0px 0px 2px #222222;
+  color: #FFFFFF;
+
 }
