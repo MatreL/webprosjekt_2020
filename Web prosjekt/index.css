@@ -241,10 +241,15 @@ h1{
     /* size */
     margin: 15px;
     /* style */
-    border-style: solid;
-    border-width: thin;
-    box-shadow: 2px 2px 8px;
-    background-color: beige;
+    border: thin solid #494B68;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px #022140;
+    background-color: #2D5F5D;
+    /* text style */
+    font-size: 1em;
+    font-family: serif;
+    text-shadow: 0px 0px 2px #222222;
+    color: #FFFFFF;
 
 }
 
@@ -283,6 +288,8 @@ h1{
     font-weight: bold;
     font-family: serif;
     text-align: center;
+    text-shadow: 0px 0px 2px #222222;
+    color: #FFFFFF;
 
 }
 #NavBarpage1{
@@ -321,6 +328,8 @@ h1{
     font-weight: bold;
     font-family: serif;
     text-align: center;
+    text-shadow: 0px 0px 2px #222222;
+    color: #FFFFFF;
 
 }
 #NavBarpage2{
@@ -342,6 +351,12 @@ h1{
     box-shadow: 2px 2px 8px #022140;
     overflow: hidden;
     background-color: #494B68;
+    /* text style */
+    font-size: 17px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-shadow: 0px 0px 2px #222222;
+    color: #FFFFFF;
 
 }
 #messageList{
@@ -425,6 +440,8 @@ h1{
     font-size: 1em;
     font-weight: bold;
     font-family: sans-serif;
+    text-shadow: 0px 0px 2px #222222;
+    color: #FFFFFF;
 
 }
 
