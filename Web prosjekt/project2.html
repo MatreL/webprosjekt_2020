@@ -11,7 +11,9 @@
     <div class="MainContainer">
 
         <div id="Header">
-            <div id="ProjectName"></div>
+            <div id="ProjectName">
+            <h1>Project 2</h1>
+            </div>
         </div>
 
         <div id="NavigationBar">
@@ -41,18 +43,31 @@
                 <form onsubmit="createNewComment(event)">
                     <div>
                         <label> Name:
-                            <select name="mName" id="memberSelect"></select>
+                            <select id="project2Select">
+                                <option>Pål Øivind</option>
+                                <option>Mathias</option>
+                                <option>Lasse</option>
+                                <option>Philip</option>
+                                <option>Fredrik</option>
+                                <option>Even</option>
+                            </select>
                         </label>
                     </div>
 
                     <div>
                         <label> Task:
-                            <select name="tName" id="taskSelect"></select>
+                            <select id="taskSelect">
+                                <option>CSS</option>
+                                <option>Javascript</option>
+                                <option>Dokumentasjon</option>
+                                <option>Refleksjon</option>
+                            
+                            </select>
                         </label>
                     </div>
 
                     <div>
-                        <label> message:
+                        <label> Message:
                             <div><textarea name="content" placeholder="Type your message here"></textarea></div>
                         </label>
                     </div>
@@ -69,8 +84,12 @@
 
 
             <div id="MemberContainer">
-                <div id="newMemberDiv"></div>
+                <div id="newMemberDiv">
+                    <div id="dummyDiv1"></div>
+                    <div id="dummyDiv2"></div>
+                </div>
                 <input type="button" id="addNewMemberButton" value="Member +">
+                
             </div>
 
 
@@ -82,68 +101,10 @@
 
     </div>
 
-    <div id="TaskFormContainer">
-        <input type="button" id="exitTaskFormButton" value="x"/>
-        <h4>Create new task</h4>
-        <form onsubmit="createNewTask(event)">
-            <input name="taskName" placeholder="Task title"/>
-            <br>
-            <input name="description" placeholder="description"/>
-            <br>
-            <input name="fileName" placeholder="File name"/>
-            <br>
-            <input name="deadline" type="datetime-local" placeholder="deadline"/>
-            <br>
-            <input type="submit" value="submit"/>
-        </form>
-    </div>
 
-    <div id="editTaskFormContainer">
-        <input type="button" id="exitEditTaskFormButton" value="x"/>
-        <h4>Edit task</h4>
-        <form onsubmit="editTask(event)">
-            <input name="editTaskName" placeholder="Task title"/>
-            <br>
-            <input name="editDescription" placeholder="description"/>
-            <br>
-            <input name="editFileName" placeholder="File name"/>
-            <br>
-            <input name="editDeadline" type="datetime-local" placeholder="deadline"/>
-            <br>
-            <input type="submit" value="submit"/>
-        </form>
-    </div>
-
-    <div id="memberTaskContainer"></div>
-    
-     <div id="columnFormContainer">
-        <input type="button" id="exitColumnFormButton" value="x"/>
-        <h4>Add new column</h4>
-        <form onsubmit="addCustomTaskColumn(event)">
-            <input name="columnName" placeholder="Column name"/>
-            <br>
-            <br>
-            <input type="submit" value="submit"/>
-        </form>
-    </div>
-
-    <div id="MemberFormContainer">
-        <input type="button" id="exitMemberFormButton" value="x"/>
-        <h4>Add new Member</h4>
-        <form onsubmit="addNewMember(event)">
-            <input name="memberName" placeholder="Add a new team member"/>
-            <br>
-            <br>
-            <input type="submit" value="submit"/>
-        </form>
-    </div>
-
-    <script src="../addMembers.js"></script>
-    <script src="../addTask.js"></script>
+    <script src="../project2.js"></script>
     <script src="../createTaskColumn.js"></script>
-    <script src="../buttonEventHandler.js"></script>
-    <script src="../Kommentarer.js"></script>
-    <script src="../addProject.js"></script>
+   
 
 </body>
 
