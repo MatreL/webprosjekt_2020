@@ -26,6 +26,7 @@ function createNewTask(event){
     columnList[0].tasks.push(task);
     window.localStorage.setItem("columnList", JSON.stringify(columnList));
     renderTaskList();
+    addMemberToDropdown(taskName);
 }
 
 
@@ -34,7 +35,9 @@ function renderTaskList() {
 
     const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
 
-    const taskSelectEl = document.getElementById("taskSelect");
+    let taskSelectEl = document.getElementById("taskSelect");
+
+    taskSelectEl.innerHTML = "";
 
     for(let i = 0; i < columnList.length; i++){
 
@@ -51,11 +54,9 @@ function renderTaskList() {
             const taskEl = document.createElement("div");
             const taskElMembers = document.createElement("div");
             //Splitting up the object "task", into seperate variables
-            const {taskName, deadline, description, fileName} = task;
+            const {taskName, deadline, description, fileName, members} = task;
 
-            const option = document.createElement("option");
-            option.text = taskName;
-            taskSelectEl.appendChild(option);
+            addMemberToDropdown(taskName);
 
             //Adding values to the innerHtml
             taskEl.innerHTML = `
@@ -245,4 +246,12 @@ function listMembers(event){
     }
     memberTaskContainer.appendChild(listElUl);
     memberTaskContainer.appendChild(exitListButton);
+}
+function addMemberToDropdown(taskName){
+
+    let taskSelectEl = document.getElementById("taskSelect");
+    const option = document.createElement("option");
+    option.text = taskName;
+    taskSelectEl.appendChild(option);
+
 }
