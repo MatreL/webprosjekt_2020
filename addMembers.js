@@ -28,28 +28,17 @@ function memberElement(){
     
     let memberSelectEl = document.getElementById("memberSelect");
     memberSelectEl.innerHTML ="";
-    
-    
-    let taskMemberSelectEl = document.getElementById("taskMemberSelect");
-    taskMemberSelectEl.innerHTML ="";
 
-    
     for (const member of nameList){
         
         const memberListEl = document.createElement("div");
         const memberEl = document.createElement("div");
         const {memberName} = member;
-        
+
         const option = document.createElement("option");
         option.text = memberName;
         memberSelectEl.appendChild(option);
-        
-        const taskMemberOption = document.createElement("option");
-        taskMemberOption.text = memberName;
-        taskMemberSelectEl.appendChild(taskMemberOption);
-    
-        
-        
+
         memberEl.innerHTML = `
             <h4>${memberName}</h4>`;
         
@@ -62,9 +51,13 @@ function memberElement(){
         memberListEl.style.margin = "3px";
         
         memberListEl.draggable = true;
-        
+        memberListEl.ondragstart = event => handleDragMemberStart(event, memberName);
         
         memberListEl.appendChild(memberEl);
         memberDiv.appendChild(memberListEl);
     }
+}
+function handleDragMemberStart(event, member){
+
+    event.dataTransfer.setData("text/plain", member);
 }

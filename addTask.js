@@ -7,7 +7,7 @@ function createNewTask(event){
     const deadline = document.querySelector("[name = 'deadline']").value;
     const description = document.querySelector("[name = 'description']").value;
     const fileName = document.querySelector("[name = 'fileName']").value;
-    const members = document.querySelector("[name = 'member']").value;
+    const  members = [];
 
     // Creating object "task" from the values gotten from the html form
     let task = {
@@ -76,11 +76,15 @@ function renderTaskList() {
                 width: 40px;
                 height: 20px;
             ">Edit</button>
+             <button type="button" onclick="listMembers(event)" style="
+                width: 70px;
+                height: 20px;
+            ">Members</button>
         `;
 
             taskElMembers.innerHTML = `
-            <div>${members}<div/>
-            
+                <p style="text-decoration: none; margin-top: 4px; padding:10px; border: 1px solid black;"
+                >Drag members here</p>
         `;
 
         taskListEl.style.width = "auto";
@@ -92,6 +96,9 @@ function renderTaskList() {
 
         taskListEl.draggable = true;
         taskListEl.ondragstart = event => handleDragStart(event, task);
+
+        taskElMembers.ondragover = event => dragOverTask(event);
+        taskElMembers.ondrop = event => dropOnTask(event);
 
         taskListEl.appendChild(taskEl);
         taskListEl.appendChild(taskElMembers);
@@ -110,6 +117,30 @@ function handleDragStart(event, task){
     const lastColumnID = event.target.parentNode.parentNode.id;
     window.localStorage.setItem("lastColumnID", JSON.stringify(lastColumnID));
 }
+
+function dragOverTask(event){
+    event.preventDefault();
+}
+
+function dropOnTask(event){
+
+    const memberName = event.dataTransfer.getData("text/plain");
+    const taskIndex = event.target.parentNode.parentNode.value;
+    const columnID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+
+    const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
+
+    for (let i = 0; i < columnList.length; i++){
+
+        if(columnID === columnList[i].name){
+
+            columnList[i].tasks[taskIndex].members.push(memberName);
+            window.localStorage.setItem("columnList", JSON.stringify(columnList));
+            renderTaskList();
+        }
+    }
+}
+
 function deleteTask(event){
     const columnEl = event.target.parentNode.parentNode.parentNode.parentNode;
     const taskEl = event.target.parentNode.parentNode;
@@ -177,4 +208,46 @@ function editTask(event) {
     window.localStorage.setItem("columnList", JSON.stringify(columnList));
     renderTaskList();
     event.target.reset();
+}
+function listMembers(event){
+
+    const memberTaskContainer = document.getElementById("memberTaskContainer");
+
+    const editingColumnName = event.target.parentNode.parentNode.parentNode.parentNode.id;
+    const editingTaskIndex = event.target.parentNode.parentNode.value;
+
+    const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
+
+    memberTaskContainer.style.display = "block";
+    memberTaskContainer.innerHTML = "Members:";
+    memberTaskContainer.style.top = `${event.clientY}px`;
+    memberTaskContainer.style.left = `${event.clientX}px`;
+    memberTaskContainer.style.overflow = "auto";
+
+    const listElUl = document.createElement("ul");
+
+    const exitListButton = document.createElement("INPUT");
+    exitListButton.setAttribute("type", "button");
+    exitListButton.value = "x";
+    exitListButton.id = "exitMemberTaskContainer";
+    exitListButton.style.position = "absolute";
+    exitListButton.style.top = "0px";
+    exitListButton.style.right = "0px";
+
+    exitListButton.onclick = function(){
+      memberTaskContainer.style.display = "none" ;
+    };
+
+    for (let i = 0; i < columnList.length; i++){
+
+        if(editingColumnName === columnList[i].name){
+
+            for(let j = 0; j < columnList[i].tasks[editingTaskIndex].members.length; j++){
+
+                listElUl.innerHTML += `<li>${columnList[i].tasks[editingTaskIndex].members[j]}</li>`;
+            }
+        }
+    }
+    memberTaskContainer.appendChild(listElUl);
+    memberTaskContainer.appendChild(exitListButton);
 }
