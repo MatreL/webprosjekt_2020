@@ -39,17 +39,24 @@ function newTaskColumn() {
 }
 
 function addCustomTaskColumn(event) {
-    var columnCounter = 2;
+
+    event.preventDefault();
+
+    let columnCounter = 2;
     columnCounter++;
     const columnCustom = {
         title: document.querySelector("[name = 'columnName']").value,
         color: "green",
         tasks: [],
         name: `column${columnCounter}`
-    }
+    };
     const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
     columnList.push(columnCustom);
     window.localStorage.setItem("columnList", JSON.stringify(columnList));
+
+    renderColumns();
+    renderTaskList();
+    location.reload();
 }
 
 function renderColumns() {
@@ -87,9 +94,14 @@ function renderColumns() {
         columnHead.style.textAlign = "center";
         //genererer headertext
 
-        columnHead.innerHTML = `<h4 class="headerText"> ${columnList[i].title} </h4>`;
-
-
+        if(i > 2){
+            columnHead.innerHTML = `
+                <button type="submit" value="${i}" onclick="deleteColumn(event)" >Delete column</button>
+                <h4 class="headerText"> ${columnList[i].title} </h4>
+            `;
+        }else{
+            columnHead.innerHTML = `<h4 class="headerText"> ${columnList[i].title} </h4>`;
+        }
     }
 }
 // For drag and drop
@@ -134,4 +146,17 @@ function deleteDraggedTask(column, task) {
             renderTaskList();
         }
     }
+}
+function deleteColumn(event){
+
+    const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
+    const currentColumn = event.target.value;
+
+    columnList.splice(currentColumn, 1);
+
+    window.localStorage.setItem("columnList", JSON.stringify(columnList));
+
+    renderColumns();
+    renderTaskList();
+    location.reload();
 }

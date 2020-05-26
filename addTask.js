@@ -68,15 +68,15 @@ function renderTaskList() {
             <p>${description}</p>
             <p>${fileName}</p>
             <p>${deadline}</p>
-            <button type="button" onclick="deleteTask(event)" style="
+            <button onclick="deleteTask(event)" style="
                 width: 65px;
                 height: 20px;
             ">Remove</button>
-            <button type="button" onclick="showEditTask(event)" style="
+            <button onclick="showEditTask(event)" style="
                 width: 40px;
                 height: 20px;
             ">Edit</button>
-             <button type="button" onclick="listMembers(event)" style="
+             <button onclick="listMembers(event)" style="
                 width: 70px;
                 height: 20px;
             ">Members</button>
