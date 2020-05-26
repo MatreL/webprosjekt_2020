@@ -328,7 +328,7 @@ h1{
     z-index: 1;
     /* grid setup */
     display: grid;
-    grid-template-columns: repeat(3, 1fr) 90px;
+    grid-template-columns: repeat(3, 1fr) 100px;
     grid-auto-rows: 1fr;
     /* grid positioning */
     grid-area: mainContainerMembers;
