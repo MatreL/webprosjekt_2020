@@ -60,4 +60,10 @@ function memberElement(){
 function handleDragMemberStart(event, member){
 
     event.dataTransfer.setData("text/plain", member);
+
+    const taskIndex = null;
+    const lastColumnID = null;
+
+    window.localStorage.setItem("taskIndex", JSON.stringify(taskIndex));
+    window.localStorage.setItem("lastColumnID", JSON.stringify(lastColumnID));
 }
