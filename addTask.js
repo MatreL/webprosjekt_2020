@@ -47,6 +47,8 @@ function renderTaskList() {
 
         let column = document.getElementById(`taskDiv${i}`);
 
+        console.log(columnList[i]);
+
         column.innerHTML = "";
 
         let j = 0;
@@ -56,7 +58,7 @@ function renderTaskList() {
             const taskEl = document.createElement("div");
             const taskElMembers = document.createElement("div");
             //Splitting up the object "task", into seperate variables
-            const {taskName, deadline, description, fileName, members} = task;
+            const {taskName, deadline, description, fileName} = task;
 
             const option = document.createElement("option");
             option.text = taskName;

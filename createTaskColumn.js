@@ -40,10 +40,12 @@ function newTaskColumn() {
 
 function addCustomTaskColumn(event) {
 
+    let columnCounter =  JSON.parse(window.localStorage.getItem("columnCounter")) || 2;
+    columnCounter ++;
+    window.localStorage.setItem("columnCounter", JSON.stringify(columnCounter));
+
     event.preventDefault();
 
-    let columnCounter = 2;
-    columnCounter++;
     const columnCustom = {
         title: document.querySelector("[name = 'columnName']").value,
         color: "green",
@@ -65,6 +67,9 @@ function renderColumns() {
     let currentDiv = document.getElementById("TaskContainer");
 
     for (let i = 0; i < columnList.length; i++) {
+
+        columnList[i].name = `column${i}`;
+        window.localStorage.setItem("columnList", JSON.stringify(columnList));
 
         //generere kategori bokser
         let columnEl = document.createElement("div");
@@ -155,6 +160,10 @@ function deleteColumn(event){
     columnList.splice(currentColumn, 1);
 
     window.localStorage.setItem("columnList", JSON.stringify(columnList));
+
+    let columnCounter =  JSON.parse(window.localStorage.getItem("columnCounter"));
+    columnCounter --;
+    window.localStorage.setItem("columnCounter", JSON.stringify(columnCounter));
 
     renderColumns();
     renderTaskList();
