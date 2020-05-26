@@ -1,6 +1,8 @@
-/* link to screen resolution site I used https://www.rapidtables.com/web/dev/screen-resolution-statistics.html */
+/* link to color scheme page: https://visme.co/blog/website-color-schemes/
+I picked number 46  */
 
-/* I'm not quite sure if best practice is to keep the grid the same after making changes for screen resolution, but this did not seem to break it in any way */
+/* for best overview of this css document, we recommend closing the styling blocks */
+/* anything that don't have a line shift in between should be somewhat related */
 
 /* body setup */
 body{
