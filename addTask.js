@@ -18,11 +18,6 @@ function createNewTask(event){
         members,
     };
 
-    //crating an array "tasklist", and push it into localstorage
-    const taskList = JSON.parse(window.localStorage.getItem("taskList")) || [];
-    taskList.push(task);
-    window.localStorage.setItem("taskList", JSON.stringify(taskList));
-
     //Resets the form in the html
     event.target.reset();
 
