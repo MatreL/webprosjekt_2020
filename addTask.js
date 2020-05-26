@@ -92,7 +92,6 @@ function renderTaskList() {
 
         taskListEl.draggable = true;
         taskListEl.ondragstart = event => handleDragStart(event, task);
-
         taskElMembers.ondragover = event => dragOverTask(event);
         taskElMembers.ondrop = event => dropOnTask(event);
 

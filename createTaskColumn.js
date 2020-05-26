@@ -100,11 +100,14 @@ function renderColumns() {
 
         if(i > 2){
             columnHead.innerHTML = `
+                <button type="submit" value="${i}" onclick="changeColor(event)" >Change color</button>
                 <button type="submit" value="${i}" onclick="deleteColumn(event)" >Delete column</button>
                 <h4 class="headerText"> ${columnList[i].title} </h4>
             `;
         }else{
-            columnHead.innerHTML = `<h4 class="headerText"> ${columnList[i].title} </h4>`;
+            columnHead.innerHTML = `
+                <button type="submit" value="${i}" onclick="changeColor(event)" >Change color</button>
+                <h4 class="headerText"> ${columnList[i].title} </h4>`;
         }
     }
 }
@@ -115,11 +118,13 @@ function dragOverCategories(event) {
 }
 
 function dropOnCategories(event) {
-    let tempTask = JSON.parse(window.localStorage.getItem("tempTask")) || [];
-    let taskIndex = JSON.parse(window.localStorage.getItem("taskIndex")) || 0;
-    let lastColumnID = JSON.parse(window.localStorage.getItem("lastColumnID")) || [];
-    setColumnTask(event.target.id, tempTask);
-    deleteDraggedTask(lastColumnID, taskIndex);
+    if(event.target.className === "taskColumns"){
+        let tempTask = JSON.parse(window.localStorage.getItem("tempTask")) || [];
+        let taskIndex = JSON.parse(window.localStorage.getItem("taskIndex")) || 0;
+        let lastColumnID = JSON.parse(window.localStorage.getItem("lastColumnID")) || [];
+        setColumnTask(event.target.id, tempTask);
+        deleteDraggedTask(lastColumnID, taskIndex);
+    }
 }
 
 function setColumnTask(selectedColumn, task) {
@@ -163,6 +168,26 @@ function deleteColumn(event){
     let columnCounter =  JSON.parse(window.localStorage.getItem("columnCounter"));
     columnCounter --;
     window.localStorage.setItem("columnCounter", JSON.stringify(columnCounter));
+
+    renderColumns();
+    renderTaskList();
+    location.reload();
+}
+function changeColor(event){
+    const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
+    const currentColumn = event.target.value;
+
+    const colorList = ["lightskyblue", "khaki", "mediumaquamarine", "#F3D1DC", "#CA7E8D", "#FED797", "#D3C0F9"];
+    let currentColor = colorList[Math.floor(Math.random() * Math.floor(colorList.length))];
+
+    if(columnList[currentColumn].color === currentColor){
+        currentColor = colorList[Math.floor(Math.random() * Math.floor(colorList.length))];
+        columnList[currentColumn].color = currentColor;
+    }else{
+        columnList[currentColumn].color = currentColor;
+    }
+
+    window.localStorage.setItem("columnList", JSON.stringify(columnList));
 
     renderColumns();
     renderTaskList();
