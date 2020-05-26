@@ -22,6 +22,18 @@ exitMemberFormButton.onclick = function () {
     memberFormContainer.style.display = "none";
 };
 
+const addNewColumnButton = document.getElementById("addCustomColumnButton");
+const exitColumnFormButton = document.getElementById("exitColumnFormButton");
+const columnFormConainer = document.getElementById("columnFormContainer");
+
+addNewColumnButton.onclick = function(){
+  columnFormContainer.style.display = "block";
+};
+
+exitColumnFormButton.onclick = function () {
+    columnFormContainer.style.display = "none";
+};
+
 const exitEditTaskFormButton = document.getElementById("exitEditTaskFormButton");
 const editTaskFormContainer = document.getElementById("editTaskFormContainer");
 

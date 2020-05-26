@@ -1,10 +1,10 @@
 isFunctionCalled = JSON.parse(window.localStorage.getItem("isFunctionCalled")) || false;
 
-if(!isFunctionCalled){
+if (!isFunctionCalled) {
     isFunctionCalled = true;
     window.localStorage.setItem("isFunctionCalled", JSON.stringify(isFunctionCalled));
     newTaskColumn();
-}else{
+} else {
     renderColumns();
     renderTaskList();
 }
@@ -23,10 +23,10 @@ function newTaskColumn() {
         name: "column1"
     };
     const column2 = {
-      title: "Done",
-      color: "mediumaquamarine",
-      tasks: [],
-      name: "column2"
+        title: "Done",
+        color: "mediumaquamarine",
+        tasks: [],
+        name: "column2"
     };
 
     const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
@@ -38,25 +38,42 @@ function newTaskColumn() {
     renderColumns();
 }
 
-function renderColumns(){
+function addCustomTaskColumn(event) {
+    var columnCounter = 2;
+    columnCounter++;
+    const columnCustom = {
+        title: document.querySelector("[name = 'columnName']").value,
+        color: "green",
+        tasks: [],
+        name: `column${columnCounter}`
+    }
+    const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
+    columnList.push(columnCustom);
+    window.localStorage.setItem("columnList", JSON.stringify(columnList));
+}
+
+function renderColumns() {
 
     const columnList = JSON.parse(window.localStorage.getItem("columnList"));
     let currentDiv = document.getElementById("TaskContainer");
 
-    for(let i = 0; i < columnList.length; i++){
+    for (let i = 0; i < columnList.length; i++) {
 
         //generere kategori bokser
-        let columnEl = document.createElement("div"); columnEl.setAttribute("class", "taskColumns"); columnEl.setAttribute("id", "column" + i);
+        let columnEl = document.createElement("div");
+        columnEl.setAttribute("class", "taskColumns");
+        columnEl.setAttribute("id", "column" + i);
 
         //header i boks med status/kategori
-        let columnHead = document.createElement("div"); columnHead.setAttribute("class", "taskHeader");
+        let columnHead = document.createElement("div");
+        columnHead.setAttribute("class", "taskHeader");
 
         columnEl.ondragover = event => dragOverCategories(event);
         columnEl.ondrop = event => dropOnCategories(event);
 
         currentDiv.appendChild(columnEl);
         columnEl.appendChild(columnHead);
-         //taskbox
+        //taskbox
         let columnTask = document.createElement("div");
         columnTask.setAttribute("id", "taskDiv" + i);
         columnEl.appendChild(columnTask);
@@ -67,7 +84,7 @@ function renderColumns(){
         columnEl.style.margin = "1em";
         columnEl.style.backgroundColor = columnList[i].color;
 
-        columnHead.style.textAlign ="center";
+        columnHead.style.textAlign = "center";
         //genererer headertext
 
         columnHead.innerHTML = `<h4 class="headerText"> ${columnList[i].title} </h4>`;
@@ -77,11 +94,11 @@ function renderColumns(){
 }
 // For drag and drop
 
-function dragOverCategories(event){
+function dragOverCategories(event) {
     event.preventDefault();
 }
 
-function dropOnCategories(event){
+function dropOnCategories(event) {
     let tempTask = JSON.parse(window.localStorage.getItem("tempTask")) || [];
     let taskIndex = JSON.parse(window.localStorage.getItem("taskIndex")) || 0;
     let lastColumnID = JSON.parse(window.localStorage.getItem("lastColumnID")) || [];
@@ -93,9 +110,9 @@ function setColumnTask(selectedColumn, task) {
 
     const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
 
-    for (const column of columnList){
+    for (const column of columnList) {
 
-        if(column.name === selectedColumn){
+        if (column.name === selectedColumn) {
 
             column.tasks.push(task[0]);
             window.localStorage.setItem("columnList", JSON.stringify(columnList));
@@ -104,13 +121,13 @@ function setColumnTask(selectedColumn, task) {
     renderTaskList();
 }
 
-function deleteDraggedTask(column, task){
+function deleteDraggedTask(column, task) {
 
     const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
 
-    for (let i = 0; i < columnList.length; i++){
+    for (let i = 0; i < columnList.length; i++) {
 
-        if(column === columnList[i].name){
+        if (column === columnList[i].name) {
 
             columnList[i].tasks.splice(task, 1);
             window.localStorage.setItem("columnList", JSON.stringify(columnList));

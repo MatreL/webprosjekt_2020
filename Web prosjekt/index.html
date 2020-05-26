@@ -75,6 +75,7 @@
 
         <div id="TaskContainer">
             <input type="button" id="openTaskCreatorButton" value="Add new task"/>
+            <input type="button" id="addCustomColumnButton" value="Add custom column"/>
         </div>
 
     </div>
@@ -108,6 +109,17 @@
             <input name="editFileName" placeholder="File name"/>
             <br>
             <input name="editDeadline" type="datetime-local" placeholder="deadline"/>
+            <br>
+            <input type="submit" value="submit"/>
+        </form>
+    </div>
+    
+     <div id="columnFormContainer">
+        <input type="button" id="exitColumnFormButton" value="x"/>
+        <h4>Add new column</h4>
+        <form onsubmit="addCustomTaskColumn(event)">
+            <input name="columnName" placeholder="Column name"/>
+            <br>
             <br>
             <input type="submit" value="submit"/>
         </form>
