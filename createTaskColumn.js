@@ -94,7 +94,7 @@ function renderColumns() {
         columnEl.style.gridRow = "2/3";
         columnEl.style.overflowY = "scroll";
         columnEl.style.backgroundColor = columnList[i].color;
-
+        columnEl.style.borderRadius = "10px 0px 0px 0px";
         columnHead.style.textAlign = "center";
         //genererer headertext
 
