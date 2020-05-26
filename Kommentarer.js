@@ -16,7 +16,9 @@ function renderMessageList() {
         messageListEl.appendChild(messageEl);
         
         messageEl.style.margin = "8px";
-        messageEl.style.border = "1px dashed white";
+        messageEl.style.border = "1px solid white";
+        messageEl.style.borderRadius = "10px";
+        messageEl.style.overflow = "auto";
         messageListEl.style.margin = "1px";
     }
 }
