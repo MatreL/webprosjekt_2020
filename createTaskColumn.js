@@ -86,7 +86,7 @@ function dropOnCategories(event){
     let taskIndex = JSON.parse(window.localStorage.getItem("taskIndex")) || 0;
     let lastColumnID = JSON.parse(window.localStorage.getItem("lastColumnID")) || [];
     setColumnTask(event.target.id, tempTask);
-    deleteTask(lastColumnID, taskIndex);
+    deleteDraggedTask(lastColumnID, taskIndex);
 }
 
 function setColumnTask(selectedColumn, task) {
@@ -104,7 +104,7 @@ function setColumnTask(selectedColumn, task) {
     renderTaskList();
 }
 
-function deleteTask(column, task){
+function deleteDraggedTask(column, task){
 
     const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
 

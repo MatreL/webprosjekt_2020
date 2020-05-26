@@ -97,7 +97,23 @@
         </form>
     </div>
 
-    <div id="MemberFormConainer">
+    <div id="editTaskFormContainer">
+        <input type="button" id="exitEditTaskFormButton" value="x"/>
+        <h4>Edit task</h4>
+        <form onsubmit="editTask(event)">
+            <input name="editTaskName" placeholder="Task title"/>
+            <br>
+            <input name="editDescription" placeholder="description"/>
+            <br>
+            <input name="editFileName" placeholder="File name"/>
+            <br>
+            <input name="editDeadline" type="datetime-local" placeholder="deadline"/>
+            <br>
+            <input type="submit" value="submit"/>
+        </form>
+    </div>
+
+    <div id="MemberFormContainer">
         <input type="button" id="exitMemberFormButton" value="x"/>
         <h4>Add new Member</h4>
         <form onsubmit="addNewMember(event)">

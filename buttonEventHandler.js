@@ -12,14 +12,21 @@ exitTaskFormButton.onclick = function () {
 
 const AddNewMemberButton = document.getElementById("addNewMemberButton");
 const exitMemberFormButton = document.getElementById("exitMemberFormButton");
-const memberFormConainer = document.getElementById("MemberFormConainer");
+const memberFormContainer = document.getElementById("MemberFormContainer");
 
 AddNewMemberButton.onclick = function(){
-  memberFormConainer.style.display = "block";
+  memberFormContainer.style.display = "block";
 };
 
 exitMemberFormButton.onclick = function () {
-    memberFormConainer.style.display = "none";
+    memberFormContainer.style.display = "none";
+};
+
+const exitEditTaskFormButton = document.getElementById("exitEditTaskFormButton");
+const editTaskFormContainer = document.getElementById("editTaskFormContainer");
+
+exitEditTaskFormButton.onclick = function(){
+  editTaskFormContainer.style.display = "none";
 };
 
 let navBarP1 = document.getElementById("NavBarPage1");

@@ -68,6 +68,14 @@ function renderTaskList() {
             <p>${description}</p>
             <p>${fileName}</p>
             <p>${deadline}</p>
+            <button type="button" onclick="deleteTask(event)" style="
+                width: 65px;
+                height: 20px;
+            ">Remove</button>
+            <button type="button" onclick="showEditTask(event)" style="
+                width: 40px;
+                height: 20px;
+            ">Edit</button>
         `;
 
             taskElMembers.innerHTML = `
@@ -101,4 +109,72 @@ function handleDragStart(event, task){
     window.localStorage.setItem("taskIndex", JSON.stringify(taskIndex));
     const lastColumnID = event.target.parentNode.parentNode.id;
     window.localStorage.setItem("lastColumnID", JSON.stringify(lastColumnID));
+}
+function deleteTask(event){
+    const columnEl = event.target.parentNode.parentNode.parentNode.parentNode;
+    const taskEl = event.target.parentNode.parentNode;
+
+    const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
+
+    for (let i = 0; i < columnList.length; i++){
+
+        if(columnEl.id === columnList[i].name){
+            columnList[i].tasks.splice(taskEl.value, 1);
+            window.localStorage.setItem("columnList", JSON.stringify(columnList));
+            renderTaskList();
+        }
+    }
+}
+
+function showEditTask(event){
+    const editContainerEl = document.getElementById("editTaskFormContainer");
+
+    editContainerEl.style.display = "block";
+    
+    editContainerEl.style.top = `${event.clientY}px`;
+    editContainerEl.style.left = `${event.clientX}px`;
+
+    const editingColumnName = event.target.parentNode.parentNode.parentNode.parentNode.id;
+    const editingTaskIndex = event.target.parentNode.parentNode.value;
+
+    window.localStorage.setItem("editingColumnName", JSON.stringify(editingColumnName));
+    window.localStorage.setItem("editingTaskIndex", JSON.stringify(editingTaskIndex));
+}
+
+function editTask(event) {
+
+    event.preventDefault();
+
+    const columnList = JSON.parse(window.localStorage.getItem("columnList")) || [];
+    const editingColumnName = JSON.parse(window.localStorage.getItem("editingColumnName")) || [];
+    const editingTaskIndex = JSON.parse(window.localStorage.getItem("editingTaskIndex")) || 0;
+
+    const taskName = document.querySelector("[name = 'editTaskName']").value;
+    const deadline = document.querySelector("[name = 'editDeadline']").value;
+    const description = document.querySelector("[name = 'editDescription']").value;
+    const fileName = document.querySelector("[name = 'editFileName']").value;
+
+    for (let i = 0; i < columnList.length; i++){
+
+        if(editingColumnName === columnList[i].name){
+
+            const task = columnList[i].tasks[editingTaskIndex];
+
+            if(taskName !== ""){
+                task.taskName = taskName;
+            }
+            if(deadline !== ""){
+                task.deadline = deadline;
+            }
+            if(description !== ""){
+                task.description = description;
+            }
+            if(fileName !== ""){
+                task.fileName = fileName;
+            }
+        }
+    }
+    window.localStorage.setItem("columnList", JSON.stringify(columnList));
+    renderTaskList();
+    event.target.reset();
 }
