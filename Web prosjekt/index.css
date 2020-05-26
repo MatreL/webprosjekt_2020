@@ -295,10 +295,11 @@ h1{
     grid-column: 1/3;
     grid-row: 2/3;
     /* style */
-    border-style: solid;
-    border-width: thin;
-    box-shadow: 2px 2px 8px;
-    background-color: cadetblue;
+    border: thin solid #265077;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px #022140;
+    overflow: hidden;
+    background-color: #494B68;
 
 }
 #comments{
@@ -331,16 +332,16 @@ h1{
     /* grid setup */
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 100px;
+    grid-template-rows: 1fr 30px;
     /* grid positioning */
     grid-column: 1/3;
     grid-row: 2/3;
     /* style */
+    border: thin solid #265077;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px #022140;
     overflow: hidden;
-    border-style: solid;
-    border-width: thin;
-    box-shadow: 2px 2px 8px;
-    background-color: beige;
+    background-color: #494B68;
 
 }
 #messageList{
@@ -352,6 +353,7 @@ h1{
     grid-row: 1/2;
     /* style */
     overflow-y: scroll;
+    background-color: #1E4258;
 
 }
 #comment{
